@@ -4,18 +4,18 @@ import (
 	"context"
 	"fmt"
 	"os"
+	
 	"github.com/jackc/pgx/v4/pgxpool"
 	_ "github.com/lib/pq"
-
 )
 
 type Database struct{}
 
-host := os.Getenv("DB_HOST")
-password := os.Getenv("DB_NAME")
-user := os.Getenv("DB_USERNAME")
-dbname := os.Getenv("DB_PASSWORD")
-schema := os.Getenv("DB_SCHEMA")
+var host = os.Getenv("DB_HOST")
+var password = os.Getenv("DB_NAME")
+var user = os.Getenv("DB_USERNAME")
+var dbname = os.Getenv("DB_PASSWORD")
+var schema = os.Getenv("DB_SCHEMA")
 
 var db *pgxpool.Pool
 
