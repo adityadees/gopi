@@ -1,5 +1,16 @@
 package main
 
+import "gopi/config"
+
+func main() {
+	eg := routes.Routing.GetRoutes(routes.Routing{})
+
+	_ = eg.Start(":1337") 
+}
+
+
+/*package main
+
 import (
 	"net/http"
 	"time"
@@ -85,3 +96,4 @@ func main() {
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
+*/
