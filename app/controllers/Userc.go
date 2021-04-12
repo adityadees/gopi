@@ -2,17 +2,30 @@ package controllers
 
 import (
 	//"fmt"
-	"net/http"
-	"time"
+	/*"net/http"
+	"time"*/
 	/*"gopi/app/handles"*/
 	//"gopi/app/models"
 	/*"gopi/app/models/entities"*/
 	//"gopi/config"
-
-	"github.com/dgrijalva/jwt-go"
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
+	//"gopi/config"
+	"gopi/app/helper/utils"
+	"github.com/labstack/echo"
+	"gopi/config/constants"
+	/*"github.com/dgrijalva/jwt-go"
+	"github.com/labstack/echo/v4/middleware"*/
 )
+
+type Userc struct {
+}
+
+
+func (Userc Userc) TestAPI(c echo.Context) error {
+
+	return utils.HandleSuccessGet(c, constants.RESPONSE_SUCCESS_API_TEST)
+}
+
+/*
 type jwtCustomClaims struct {
 	Name  string `json:"name"`
 	Admin bool   `json:"admin"`
@@ -88,3 +101,4 @@ func xlog() {
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
+*/
