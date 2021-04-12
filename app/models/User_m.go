@@ -1,12 +1,12 @@
 package user_m
 
-import (
-	/*"context"
-	"fmt"
-	"log"*/
-	"gopi/config"
-	/*"gopi/app/models/entities"*/
-)
+import "gopi/config/database"
+
+/*"context"
+"fmt"
+"log"*/
+
+/*"gopi/app/models/entities"*/
 
 type OwnerModel struct {
 	db database.Database
