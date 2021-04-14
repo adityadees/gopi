@@ -3,14 +3,10 @@ package controllers
 import (
 	"net/http"
 	"time"
-
-	"github.com/dgrijalva/jwt-go"
-	//"github.com/labstack/echo/v4"
-	//"github.com/labstack/echo/v4/middleware"
 	"gopi/app/helper/utils"
 	"gopi/config/constants"
-
 	"github.com/labstack/echo"
+	"github.com/dgrijalva/jwt-go"
 )
 
 type ExampleController struct {
@@ -33,7 +29,7 @@ func (ExampleController ExampleController) Login(c echo.Context) error {
 
 	// Set custom claims
 	claims := &jwtCustomClaims{
-		"Jon Snow",
+		username,
 		true,
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Hour * 72).Unix(),
@@ -52,13 +48,6 @@ func (ExampleController ExampleController) Login(c echo.Context) error {
 	return c.JSON(http.StatusOK, echo.Map{
 		"token": t,
 	})
-}
-
-func (ExampleController ExampleController) Restricted(c echo.Context) error {
-	user := c.Get("user").(*jwt.Token)
-	claims := user.Claims.(*jwtCustomClaims)
-	name := claims.Name
-	return c.String(http.StatusOK, "Welcome "+name+"!")
 }
 
 func (ExampleController ExampleController) TestAPI(c echo.Context) error {
